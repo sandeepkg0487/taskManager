@@ -10,7 +10,13 @@ async function createTask(req, res, next) {
     if (!ticketNo || !title || !description || !status || !priority || !dueDate || !assignedTo || !projectId) {
         return res.status(400).json({ error: 'All fields are required.' });
       }
-    
+    if(assignedTo){
+        assignedTo.map(data=>{
+            if(data.value){
+                
+            }
+        })
+    }
     try {
         // const findemail = await userModel.findOne({ email })
         // if (findemail) {}

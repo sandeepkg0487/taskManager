@@ -74,17 +74,22 @@ const taskSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    assignedTo: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      },
-    projectId: {
+    assignedTo:[{
+       value:{
         type: Schema.Types.ObjectId,
         ref: 'Project',
         required: true
-      }
-
+       },
+       label:{
+        type:String,
+       }
+      }]
+,
+    projectId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
 })
 const taskModel = model('task', taskSchema);
 
